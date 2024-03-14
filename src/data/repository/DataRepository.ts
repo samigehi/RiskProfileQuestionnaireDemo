@@ -23,7 +23,7 @@ export class AppRepository implements RemoteRepository {
 
 
 // hardcoded questionnaires
-var data = [
+export var data = [
   {
     question: "1. How would you describe your investment knowledge?",
     options: [
