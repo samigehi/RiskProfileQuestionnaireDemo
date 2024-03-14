@@ -1,3 +1,23 @@
+
+A basic React Native demonstration application designed to evaluate users through a Risk Profile Questionnaire with Clean Architecute and typescript.
+
+
+Domain
+This layer contains all the business rules / logic.
+
+Data
+This layer contains all the rules / logic. related to DATA, local data, remote data, APIs connectiviy,  (for demo purpose i added only LocalDataSource)
+
+Presentation / UI
+This layer contains views and controllers (Redux Thunks).
+
+Application
+This layer contains the use cases of the bounded context.
+
+Infrastructure
+This layer contains the technical details (implementation) of the domain layer and third parties integrations.
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
@@ -79,20 +99,3 @@ To learn more about React Native, take a look at the following resources:
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
 
 
-A simple Risk Profile Questionnaire Mobile App with Clean Architecute and typescript
-
-
-Domain
-This layer contains all the business rules / logic.
-
-Data
-This layer contains all the rules / logic. related to DATA, local data, remote data, APIs connectiviy, 
-
-Presentation / UI
-This layer contains views and controllers (Redux Thunks).
-
-Application
-This layer contains the use cases of the bounded context.
-
-Infrastructure
-This layer contains the technical details (implementation) of the domain layer and third parties integrations.
