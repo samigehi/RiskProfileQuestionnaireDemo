@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   View,
   Text,
@@ -21,30 +21,35 @@ const QuizPage = ({ navigation }) => {
   const [isOptionsDisabled, setIsOptionsDisabled] = useState(false);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
   //const [currentPoints, setCurrentPoints] = useState(null);
-  const [score, setScore] = useState(0);
+  //const [score, setScore] = useState(0);
+  const points = useRef(0) // updating ref will not render page
 
   const restartQuiz = () => {
     setCurrentQuestionIndex(0);
-    setScore(0);
+   // setScore(0);
+    points.current = 0;
     setCurrentOptionSelected(null);
     //setCurrentPoints(null);
     setIsOptionsDisabled(false);
   };
   const validateAnswer = (selectedIndex, navigation) => {
-
+    var currentPoints = points.current + selectedIndex;
+    console.log(points.current)
     if (isOptionsDisabled == false) {
       //let points = allQuestions[currentQuestionIndex]["points[0]"];
       //setCurrentPoints(points);
+      points.current = currentPoints;
       setCurrentOptionSelected(selectedIndex);
       setIsOptionsDisabled(true);
-      setScore(score + selectedIndex);
-      handleNext(navigation)
+      //setScore(points.current);
+      handleNext(navigation);
     }
-
   };
   const handleNext = (navigation) => {
     if (currentQuestionIndex == allQuestions.length - 1) {
-      navigation.navigate("Result", { score: score, restartQuiz: restartQuiz });
+      var temp = points.current // temp points / score
+      restartQuiz(); // clear values
+      navigation.navigate("Result", { score: temp });
     } else {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setCurrentOptionSelected(null);
@@ -91,7 +96,7 @@ const QuizPage = ({ navigation }) => {
             }}
           >
             <TouchableOpacity
-              onPress={() => validateAnswer(index, navigation)}
+              onPress={() => validateAnswer(index+1, navigation)}
               key={index}
               style={[
                 { ...styles.optionsText },
