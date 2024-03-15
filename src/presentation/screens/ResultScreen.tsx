@@ -5,14 +5,14 @@ const ResultScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.subContainer}>
-        <Text style={{ fontSize: 50 }}>Your Risk Profile Assessment is</Text>
+        <Text style={{ fontSize: 24 }}>Your Risk Profile Assessment is</Text>
 
         <View style={styles.textWrapper}>
           <Text style={styles.score}>{score}</Text>
-          <Text style={styles.score}> / 18</Text> 
-        
-          <Text style={styles.score}> analyseUser(score)</Text> 
-        {/* currently I hardcode 18 as total points for 5 questions - but we can calculate also based on data.points.length */}   
+          <Text style={styles.score}> / 18  </Text> 
+       
+          <Text style={styles.score}> - {analyseUser(score)} </Text> 
+        {/* currently I hardcode 18 (total points) as total points for 5 questions - but we can calculate also based on data.points.length */}   
         </View>
         {/* Retry Risk Profile Assessment button */}
         <TouchableOpacity
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     marginVertical: 30,
   },
   score: {
-    fontSize: 100,
+    fontSize: 16,
     color: "#ffffff",
     fontWeight: "bold",
   },

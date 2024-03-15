@@ -31,15 +31,16 @@ const QuizPage = ({ navigation }) => {
     setIsOptionsDisabled(false);
   };
   const validateAnswer = (selectedIndex, navigation) => {
+
     if (isOptionsDisabled == false) {
       //let points = allQuestions[currentQuestionIndex]["points[0]"];
       //setCurrentPoints(points);
-
       setCurrentOptionSelected(selectedIndex);
       setIsOptionsDisabled(true);
       setScore(score + selectedIndex);
-      
+      handleNext(navigation)
     }
+
   };
   const handleNext = (navigation) => {
     if (currentQuestionIndex == allQuestions.length - 1) {
@@ -47,7 +48,7 @@ const QuizPage = ({ navigation }) => {
     } else {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setCurrentOptionSelected(null);
-      setCorrectOption(null);
+      // setCorrectOption(null);
       setIsOptionsDisabled(false);
     }
     Animated.parallel([

@@ -16,7 +16,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Risk Profile"
+          name="Quiz"
           component={QuizPage}
           options={{
             title: "Questionnaire",
