@@ -7,6 +7,6 @@ export interface RemoteDataSource {
 @injectable()
 export class RemoteDataSourceImp  implements RemoteDataSource {
   getRiskProfileQuestionnaire(): { question: string; options: string[]; points: string[]; }[] {
-    return [];
+    return []; //axio/api call to get data from web services
   }
 }

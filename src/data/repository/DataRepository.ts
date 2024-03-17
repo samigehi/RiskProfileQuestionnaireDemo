@@ -17,6 +17,9 @@ export class AppRepository implements RemoteRepository {
 
   // right now hardcoded questionnaires
   getRiskProfileQuestionnaire(): { question: string; options: string[]; points: string[]; }[] {
+    /* Here, we will retrieve data based on conditions. Depending on the condition, 
+    we will either fetch the data from an API/web service or retrieve it from the local database. 
+    Subsequently, we will return this data to the application layer to display questions on the UI. */
     return data
   }
 }

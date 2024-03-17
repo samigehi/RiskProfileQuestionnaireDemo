@@ -12,8 +12,8 @@ import ProgressBar from "../component/progress/ProgressBar";
 import Questions from "./Questions";
 
 const QuizPage = ({ navigation }) => {
-  const allQuestions = data;
-
+  const allQuestions = data; // right now short of time I am hardcoding data here, later we can call AppRepository to get data from Remote/API or Local/DB source
+ 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [progress, setProgress] = useState(new Animated.Value(1));
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
@@ -96,6 +96,7 @@ const QuizPage = ({ navigation }) => {
             }}
           >
             <TouchableOpacity
+            //allQuestions[currentQuestionIndex]?.points[index]
               onPress={() => validateAnswer(index+1, navigation)}
               key={index}
               style={[
